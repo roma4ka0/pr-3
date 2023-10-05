@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задание 1</title>
+  </head>
+  <body>
+    <script>
+      function countCharInString(str, char) {
+        let count = 0;
+        for (let i = 0; i < str.length; i++) {
+          if (str.charAt(i) === char) {
+            count++;
+          }
+        }
+
+        return count;
+      }
+
+      function getRow(firstRow, secondRow, char) {
+        const firstRowCount = countCharInString(firstRow, char);
+        const secondRowCount = countCharInString(secondRow, char);
+
+        if (firstRowCount >= secondRowCount) {
+          return firstRow;
+        } else {
+          return secondRow;
+        }
+      }
+
+      const firstRow = "мама мыла раму";
+      const secondRow = "собака друг человека";
+
+      const charToSearch = prompt(
+        "Введите букву, которую вы хотите посчитать (русская или латинская):"
+      );
+      const result = getRow(firstRow, secondRow, charToSearch);
+      alert(`Строка с большим количеством букв "${charToSearch}": ${result}`);
+    </script>
+  </body>
+</html>
